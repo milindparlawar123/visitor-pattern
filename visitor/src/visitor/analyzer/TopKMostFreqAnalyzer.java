@@ -7,14 +7,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+
 import visitor.myArrayList.Element;
 import visitor.myArrayList.MyArrayList;
 import visitor.results.Results;
+import visitor.results.TopKFreqWordsResults;
 
 public class TopKMostFreqAnalyzer implements Visitor {
 	private int maxSize;
 	private Results topKFreqWordsResults;
-	private List<List<String>> data = new ArrayList<List<String>>();
+	//private List<List<String>> data = new ArrayList<List<String>>();
 
 	public TopKMostFreqAnalyzer(int kIn, Results topKFreqWordsResultsIn) {
 		// TODO Auto-generated constructor stub
@@ -26,7 +28,7 @@ public class TopKMostFreqAnalyzer implements Visitor {
 	public void visit(Element visitor) {
 
 		MyArrayList myArrayList = (MyArrayList) visitor;
-
+		TopKFreqWordsResults spellCheckResults=(TopKFreqWordsResults)this.topKFreqWordsResults;
 		System.out.println("in TopKMostFreqAnalyzer");
 		Iterator iterator = myArrayList.createIterator();
 		while (iterator.hasNext()) {
@@ -65,13 +67,13 @@ public class TopKMostFreqAnalyzer implements Visitor {
 				}
 				// Collections.reverse(result);
 				// System.out.println("words >> " + words);
-				data.add(words);
+				spellCheckResults.storeWords(words);
 				// System.out.println(result + " " + result.size());
 
 			}
 
 		}
-		System.out.println(data);
+		//System.out.println(data);
 		// TODO Auto-generated method stub
 
 	}

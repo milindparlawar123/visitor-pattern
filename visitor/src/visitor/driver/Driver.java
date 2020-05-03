@@ -15,7 +15,7 @@ public class Driver {
 
 		Element myArrayList = new MyArrayList.Builder().withFileProcessor(fileProcessor).build();
 
-		System.out.println((MyArrayList) myArrayList);
+		//System.out.println((MyArrayList) myArrayList);
 		for (Visitor visitor : visitors) {
 			myArrayList.accept(visitor);
 		}
