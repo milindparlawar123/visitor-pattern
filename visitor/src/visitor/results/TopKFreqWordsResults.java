@@ -1,4 +1,4 @@
-package visitor.driver;
+package visitor.results;
 
 public class TopKFreqWordsResults implements Results {
 	private String topKOutputFilename;

@@ -1,6 +1,12 @@
-package visitor.driver;
+package visitor.analyzer;
 
 import java.util.Iterator;
+
+import visitor.myArrayList.Element;
+import visitor.myArrayList.MyArrayList;
+import visitor.results.Results;
+import visitor.results.SpellCheckResults;
+import visitor.myArrayList.Element;
 
 public class SpellCheckAnalyzer implements Visitor {
 	private String acceptableWordsFilename;

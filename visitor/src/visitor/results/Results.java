@@ -1,4 +1,4 @@
-package visitor.driver;
+package visitor.results;
 
 public interface Results {
 

@@ -1,4 +1,4 @@
-package visitor.driver;
+package visitor.results;
 
 public class SpellCheckResults implements Results {
 	private String spellCheckOutputFilename;

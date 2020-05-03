@@ -1,4 +1,4 @@
-package visitor.driver;
+package visitor.util;
 
 public class SentenceValidator {
 

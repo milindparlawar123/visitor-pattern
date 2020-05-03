@@ -1,4 +1,4 @@
-package visitor.driver;
+package visitor.analyzer;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,6 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import visitor.myArrayList.Element;
+import visitor.myArrayList.MyArrayList;
+import visitor.results.Results;
 
 public class TopKMostFreqAnalyzer implements Visitor {
 	private int maxSize;

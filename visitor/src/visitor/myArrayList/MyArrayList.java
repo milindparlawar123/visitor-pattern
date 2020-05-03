@@ -1,8 +1,12 @@
-package visitor.driver;
+package visitor.myArrayList;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import visitor.analyzer.Visitor;
+import visitor.util.FileProcessor;
+import visitor.myArrayList.Element;
 
 public class MyArrayList implements Element {
 	private static List<String> ls = new ArrayList<String>();
