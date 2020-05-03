@@ -34,6 +34,8 @@ public class MyArrayList implements Element {
 					// System.out.println(numberStr.trim());
 					ls.add(numberStr.trim());
 				}
+				
+				this.fileProcessor.fileClose();
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
