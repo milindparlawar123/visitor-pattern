@@ -84,6 +84,21 @@ public class FileProcessor {
 		}
 		return readSentence;
 	}
+	
+	public String readLine() {
+		String line = null;
+		try {
+			line = fileReader.readLine();
+			return line;
+		} catch (IOException e) {
+			System.err.println(Constants.ERROR_READING_FILE);
+			e.printStackTrace();
+			System.exit(0);
+		} finally {
+
+		}
+		return line;
+	}
 
 	/**
 	 * Closes the stream and releases any system resources associated with
