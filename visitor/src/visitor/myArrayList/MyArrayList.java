@@ -20,13 +20,11 @@ public class MyArrayList implements Element {
 		}
 
 		public Builder withFileProcessor(FileProcessor fileProcessor) {
-			// TODO Auto-generated method stub
 			this.fileProcessor = fileProcessor;
 			return this;
 		}
 
 		public Element build() {
-			// TODO Auto-generated method stub
 
 			try {
 				String numberStr = null;
@@ -38,8 +36,9 @@ public class MyArrayList implements Element {
 				this.fileProcessor.fileClose();
 
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}finally {
+				
 			}
 			return new MyArrayList();
 		}
@@ -65,5 +64,11 @@ public class MyArrayList implements Element {
 	public static void setLs(List<String> ls) {
 		MyArrayList.ls = ls;
 	}
+
+	@Override
+	public String toString() {
+		return "MyArrayList []";
+	}
+
 
 }

@@ -9,13 +9,13 @@ import visitor.results.Results;
 import visitor.results.SpellCheckResults;
 import visitor.results.TopKFreqWordsResults;
 import visitor.util.FileProcessor;
+import visitor.validator.DriverValidator;
 
 public class Driver {
 	private static void runAnalysis(FileProcessor fileProcessor, Visitor... visitors) {
 
 		Element myArrayList = new MyArrayList.Builder().withFileProcessor(fileProcessor).build();
 
-		//System.out.println((MyArrayList) myArrayList);
 		for (Visitor visitor : visitors) {
 			myArrayList.accept(visitor);
 		}
@@ -36,18 +36,30 @@ public class Driver {
 		// 4. topKOutputFilename.
 		// 5. spellCheckOutputFilename.
 
-		FileProcessor fileProcessor = null;
 		try {
-			fileProcessor = new FileProcessor("input.txt");
-		} catch (Exception e) {
-			// TODO: handle exception
+			new DriverValidator(args.length, args);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			System.exit(0);
+		} finally {
+
 		}
 
-		Results topKFreqWordsResults = new TopKFreqWordsResults("topk_output.txt");
-		Visitor topKMostFreqAnalyzer = new TopKMostFreqAnalyzer(2, topKFreqWordsResults);
+		FileProcessor fileProcessor = null;
+		try {
+			fileProcessor = new FileProcessor(args[0]);// "input.txt"
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(0);
+		} finally {
 
-		Results spellCheckResults = new SpellCheckResults("spellcheck_output.txt");
-		Visitor spellCheckAnalyzer = new SpellCheckAnalyzer("acceptable_words.txt", spellCheckResults);
+		}
+
+		Results topKFreqWordsResults = new TopKFreqWordsResults(args[3]);// "topk_output.txt"
+		Visitor topKMostFreqAnalyzer = new TopKMostFreqAnalyzer(Integer.parseInt(args[2]), topKFreqWordsResults);
+
+		Results spellCheckResults = new SpellCheckResults(args[4]);// "spellcheck_output.txt"
+		Visitor spellCheckAnalyzer = new SpellCheckAnalyzer(args[1], spellCheckResults);// "acceptable_words.txt"
 
 		runAnalysis(fileProcessor, topKMostFreqAnalyzer, spellCheckAnalyzer);
 
