@@ -10,6 +10,13 @@ import visitor.results.Results;
 import visitor.results.SpellCheckResults;
 import visitor.util.FileProcessor;
 
+/**
+ * @author Milind
+ * below class is for -  a sentence, check whether there is a 
+ * spelling mistake in any of the constituent words
+ * if yes, then store that word and its predicted words
+ * in data structure  
+ */
 public class SpellCheckAnalyzer implements Visitor {
 	private Results spellCheckResults;
 	private FileProcessor fileProcessor;
@@ -35,6 +42,11 @@ public class SpellCheckAnalyzer implements Visitor {
 
 	}
 
+	/**
+	 * check is there any spelling mistake in
+	 * words and if yes then call spellCheckResults
+	 * to store word and its predicted words
+	 */
 	@Override
 	public void visit(Element visitor) {
 

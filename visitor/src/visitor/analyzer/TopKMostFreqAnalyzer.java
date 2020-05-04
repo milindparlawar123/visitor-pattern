@@ -13,6 +13,11 @@ import visitor.myArrayList.MyArrayList;
 import visitor.results.Results;
 import visitor.results.TopKFreqWordsResults;
 
+/**
+ * @author Milind
+ *below class is for each sentence store the top K most frequent words,
+ * sorted in non-increasing order of frequency to Results
+ */
 public class TopKMostFreqAnalyzer implements Visitor {
 	private int maxSize;
 	private Results topKFreqWordsResults;
@@ -35,19 +40,20 @@ public class TopKMostFreqAnalyzer implements Visitor {
 			String keys[] = temp.toLowerCase().split(" ");
 			{
 
-				HashMap<String, Integer> map = new HashMap<>();
+				HashMap<String, Integer> hashMap = new HashMap<>();
 				List<String> wordList = new ArrayList<>();
 
 				for (String key : keys) {
 
-					map.put(key, (map.get(key) != null ? map.get(key) : 0) + 1);
+					hashMap.put(key, (hashMap.get(key) != null ? hashMap.get(key) : 0) + 1);
+					//System.out.println(key);
 				}
 
 				PriorityQueue<Map.Entry<String, Integer>> priorityQueue = new PriorityQueue<>(
 						Comparator.comparing(word -> word.getValue()));
 
-				for (Map.Entry<String, Integer> keyValue : map.entrySet()) {
-
+				for (Map.Entry<String, Integer> keyValue : hashMap.entrySet()) {
+					//System.out.println(keyValue);
 					priorityQueue.offer(keyValue);
 					if (priorityQueue.size() > maxSize) {
 						priorityQueue.poll();
