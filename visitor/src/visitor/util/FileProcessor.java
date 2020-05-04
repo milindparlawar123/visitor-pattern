@@ -9,6 +9,10 @@ import java.io.IOException;
 import visitor.constants.Constants;
 
 
+/**
+ * @author Milind
+ *below class is to process input file
+ */
 public class FileProcessor {
 	private File file;
 	private BufferedReader fileReader;
@@ -17,6 +21,10 @@ public class FileProcessor {
 		file = new File(fName);
 		try {
 			fileReader = new BufferedReader(new FileReader(file));
+			if(file.length()==0) {
+				System.out.println(fName +" "+ Constants.ERROR_EMPTY_FILE);
+				System.exit(0);
+			}
 		} catch (FileNotFoundException e) {
 			System.err.println(Constants.ERROR_OPENING_FILE);
 			e.printStackTrace();
@@ -69,7 +77,9 @@ public class FileProcessor {
 				if((char) readChar != '.')
 				readSentence += (char) readChar;
 				if (!SentenceValidator.isCharValid(readChar)) {
-					return Constants.ERROR;
+					System.out.println(file.getName() +" - "+ Constants.ERROR);
+					System.exit(0);
+					//return Constants.ERROR;
 				}
 				if ((char) readChar == '.') {
 					return readSentence;

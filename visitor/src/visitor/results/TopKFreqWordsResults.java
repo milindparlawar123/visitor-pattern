@@ -9,6 +9,11 @@ import java.util.List;
 
 import visitor.constants.Constants;
 
+/**
+ * @author Milind
+ *Below class is to store Top K FreqWords
+ *and write to output file
+ */
 public class TopKFreqWordsResults implements Results {
 	private List<List<String>> data = new ArrayList<List<String>>();
 	private File file;
@@ -29,6 +34,9 @@ public class TopKFreqWordsResults implements Results {
 		}
 	}
 
+	/**
+	 *below method is to write data to output file
+	 */
 	@Override
 	public void writeToFile() {
 
@@ -46,12 +54,19 @@ public class TopKFreqWordsResults implements Results {
 		this.close();
 	}
 
+	/**
+	 * @param ls
+	 * ls will be added to data structure 
+	 */
 	public void storeWords(List<String> ls) {
 
 		this.data.add(ls);
 
 	}
 
+	/**
+	 *below method is to close file
+	 */
 	@Override
 	public void close() {
 		try {

@@ -10,6 +10,12 @@ import java.util.Map;
 
 import visitor.constants.Constants;
 
+/**
+ * @author Milind
+ * below class is store misspelled word and
+ * its predicted words and write to output file
+ * later
+ */
 public class SpellCheckResults implements Results {
 	private Map<String, List> store;
 	private File file;
@@ -31,6 +37,9 @@ public class SpellCheckResults implements Results {
 		}
 	}
 
+	/**
+	 *below method is to write data to output file
+	 */
 	@Override
 	public void writeToFile() {
 		this.store.forEach((k, v) -> {
@@ -49,17 +58,27 @@ public class SpellCheckResults implements Results {
 
 	}
 
+	/**
+	 * @param key
+	 * @param list
+	 * below method is to store key and its value
+	 * in data structure
+	 */
 	public void storeWord(String key, List list) {
 
 		this.store.put(key, list);
 	}
 
+	/**
+	 *below method is to close file
+	 */
 	@Override
 	public void close() {
 		try {
 			this.fileWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.exit(0);
 		}finally {
 			
 		}

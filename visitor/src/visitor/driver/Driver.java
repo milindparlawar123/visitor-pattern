@@ -10,7 +10,12 @@ import visitor.results.SpellCheckResults;
 import visitor.results.TopKFreqWordsResults;
 import visitor.util.FileProcessor;
 import visitor.validator.DriverValidator;
-
+/**
+ * @author Milind.
+ * Driver is to validate command line arguments 
+ * and check data whether it is valid or not
+ * if yes, then call all other classes  
+ */
 public class Driver {
 	private static void runAnalysis(FileProcessor fileProcessor, Visitor... visitors) {
 

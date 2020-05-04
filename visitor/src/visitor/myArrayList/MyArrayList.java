@@ -8,6 +8,14 @@ import visitor.analyzer.Visitor;
 import visitor.util.FileProcessor;
 import visitor.myArrayList.Element;
 
+/**
+ * @author Milind
+ * below class is to process input file and
+ * store it in array list and returns 
+ * MyArrayList object and accept method is to
+ * call particular visitor to process further
+ * 
+ */
 public class MyArrayList implements Element {
 	private static List<String> ls = new ArrayList<String>();
 
@@ -45,6 +53,10 @@ public class MyArrayList implements Element {
 
 	}
 
+	/**
+	 *Accepts visitor to execute call of
+	 *called visitor
+	 */
 	@Override
 	public void accept(Visitor visitorIn) {
 		// TODO Auto-generated method stub
